@@ -1,14 +1,108 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Выбор даты и времени</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page">
-      <!-- Перенесите вашу верстку. Удалите статичные данные. Подключите скрипт -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дата и время записи — Смена</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="wordmark">СМЕНА</span>
+        <span class="brand-description">Барбершоп<br>Москва · с 2018</span>
+      </div>
+      <nav class="site-nav" aria-label="Основное меню">
+        <ul class="site-menu">
+          <li><a href="#service">Услуги</a></li>
+          <li><a href="#barber">Команда</a></li>
+          <li><a href="#rating">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="header-phone" href="tel:+74951234567">+7 (495) 123-45-67</a>
     </div>
-  </body>
+  </header>
+  <nav class="progress" aria-label="Этапы онлайн-записи">
+    <ol class="container steps">
+      <li class="step step--done"><span class="step-number" aria-label="Этап 1, завершён">✓</span>Мастер</li>
+      <li class="step step--done"><span class="step-number" aria-label="Этап 2, завершён">✓</span>Услуга</li>
+      <li class="step step--current" aria-current="step"><span class="step-number">3</span>Дата и время</li>
+      <li class="step"><span class="step-number">4</span>Контакты</li>
+      <li class="step"><span class="step-number">5</span>Подтверждение</li>
+    </ol>
+  </nav>
+  <main class="container booking">
+    <div class="booking-meta">
+      <button class="back-link" type="button">← Назад</button>
+      <span class="eyebrow">Онлайн-запись / 3 из 5</span>
+    </div>
+    <h1 class="booking-title">Найдём время для себя</h1>
+    <p class="booking-intro">Выберите день и время начала. Для комплекса нужен один свободный час.</p>
+    <div class="booking-grid">
+      <section class="panel calendar" aria-labelledby="month">
+        <div class="calendar-heading">
+          <h2 class="panel-title" id="month">Ноябрь 2026</h2>
+          <div class="month-nav">
+            <button class="month-button" id="prev-month" type="button" aria-label="Предыдущий месяц">‹</button>
+            <button class="month-button" id="next-month" type="button" aria-label="Следующий месяц">›</button>
+          </div>
+        </div>
+        <div class="calendar-week" aria-hidden="true">
+          <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+        </div>
+        <div class="calendar-days"></div>
+        <p class="panel-note"><span id="picked-day">Выбрано: 6 ноября, пятница</span><br>Все часы указаны по Москве.</p>
+      </section>
+
+      <section class="panel availability" aria-labelledby="slot-date">
+        <h2 class="panel-title" id="slot-date">6 ноября, пятница</h2>
+        <p class="slot-intro">Начало визита · 60 минут</p>
+        <div class="slot-grid"></div>
+        <p class="panel-note" id="visit-note" aria-live="polite"></p>
+      </section>
+
+      <aside class="panel summary" aria-labelledby="summary">
+        <h2 class="eyebrow" id="summary">Ваша смена</h2>
+        <div class="barber" id="barber">
+          <img class="barber-photo" src="images/dmitry-volkov.jpg" alt="" width="56" height="56">
+          <div><strong>Дмитрий Волков</strong><p class="summary-note" id="rating">Топ-барбер · ★ 4,9</p></div>
+        </div>
+        <div class="summary-row" id="service">
+          <strong>Стрижка + борода</strong>
+          <p class="summary-note">60 минут · всё включено</p>
+        </div>
+        <div class="summary-row">
+          <strong><time id="summary-date" datetime="2026-11-06">6 ноября 2026, пятница</time></strong>
+          <p class="summary-note" id="summary-time"></p>
+        </div>
+        <div class="price-row"><span>К оплате в барбершопе</span><strong>2 200 ₽</strong></div>
+        <address class="panel-note">Москва, ул. Садовая, 15<br><a href="tel:+74951234567">+7 (495) 123-45-67</a></address>
+      </aside>
+    </div>
+
+    <div class="booking-actions">
+      <div class="selection">
+        <strong id="selection-text" aria-live="polite"></strong>
+        <p class="summary-note">Без предоплаты. Оплата после визита.</p>
+      </div>
+      <div class="action-buttons">
+        <button class="action action--secondary" type="button">Назад</button>
+        <button class="action action--primary" type="button">Далее <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer" id="contacts">
+    <div class="container">
+      <div class="footer-grid">
+        <div><span class="wordmark">СМЕНА</span><p>Хорошая стрижка. Свои люди.<br>Место, куда хочется вернуться.</p></div>
+        <div><h2 class="footer-heading">Заходите в гости</h2><address>Москва, ул. Садовая, 15<br><a class="footer-phone" href="tel:+74951234567">+7 (495) 123-45-67</a></address></div>
+        <div><h2 class="footer-heading">Работаем для вас</h2><p>Пн–Пт: 9:00–21:00<br>Сб–Вс: 10:00–19:00</p></div>
+      </div>
+      <div class="footer-bottom"><small>© СМЕНА, 2026</small><span>Политика конфиденциальности</span></div>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
 </html>
